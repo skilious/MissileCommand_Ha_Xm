@@ -50,6 +50,8 @@ public class PlayerBattery : MonoBehaviour
                 if(_rounds > 0)
                 {
                     _spriteRend.enabled = true;
+
+                    _spriteRend.sprite = SpriteAtlasManager.Instance.GetSprite(SpriteAtlasManager.BATTERY_ATLAS, _rounds);
                 }
                 else
                 {
@@ -57,5 +59,10 @@ public class PlayerBattery : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Reset()
+    {
+        return;
     }
 }

@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Batteries_atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8e791d953622ba741822f0fdc385e51f, type: 3}
+    totalSpriteSurfaceArea: 9672
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e290b500274078e41839cc0be03942f0, type: 3}
+  - {fileID: 21300000, guid: 4d25d7800e57c424291fcd2300b76d47, type: 3}
+  - {fileID: 21300000, guid: 5eb6322120d8ace44ad72e34688bb1bd, type: 3}
+  - {fileID: 21300000, guid: e3295b71867ab34439503758a93e0e3e, type: 3}
+  - {fileID: 21300000, guid: 6645e652ff830894e88e34d6ad2e29eb, type: 3}
+  - {fileID: 21300000, guid: 9df712b2edd996849a31f72cc8303081, type: 3}
+  - {fileID: 21300000, guid: 548980d2e3bec2f42a99f52bb9abc8fa, type: 3}
+  - {fileID: 21300000, guid: 34d926334b8325241820310434bcd776, type: 3}
+  - {fileID: 21300000, guid: 90f6a9a392fc9c743866fabc1ee0c6da, type: 3}
+  - {fileID: 21300000, guid: a2cde4f3040abed4080f15fee6c467e6, type: 3}
+  - {fileID: 21300000, guid: bcba3e04347100948afd1640bc3786ca, type: 3}
+  - {fileID: 21300000, guid: 2cee0a1545fbf8f4ebe93d5a0ecd3630, type: 3}
+  - {fileID: 21300000, guid: 9fe371b5eb8d2814bbc336a8e935d42d, type: 3}
+  - {fileID: 21300000, guid: ac7b9936f3ed80642b7ddf1c671780c5, type: 3}
+  - {fileID: 21300000, guid: 217a0927969399f4da1d1757d347afec, type: 3}
+  - {fileID: 21300000, guid: 0e9de14809183ae418d6d74388a8a3d0, type: 3}
+  - {fileID: 21300000, guid: 0d0aab79736477d47914ec2a40479b6b, type: 3}
+  - {fileID: 21300000, guid: 832a5389602554f439f5dae87259df88, type: 3}
+  - {fileID: 21300000, guid: fe01ed5b30e415d4da75e9b69bf856e7, type: 3}
+  - {fileID: 21300000, guid: 5eea695c3941a6348a8638e7ad0edc2f, type: 3}
+  - {fileID: 21300000, guid: d4caa8dcd58bf23408003dbcdb44556d, type: 3}
+  - {fileID: 21300000, guid: 7ea2f8fc1e6f7ff4889b5e2faa544047, type: 3}
+  - {fileID: 21300000, guid: 5eb7e66f14128c440b0b2d572bcd7757, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - explosion4_9
+  - explosion4_8
+  - battery_2
+  - battery_6
+  - battery_1
+  - explosion4_4
+  - explosion4_3
+  - explosion4_12
+  - explosion4_7
+  - battery_8
+  - explosion4_10
+  - explosion4_11
+  - battery_3
+  - player_missile_white
+  - battery_10
+  - explosion4_1
+  - battery_9
+  - battery_4
+  - battery_7
+  - explosion4_2
+  - explosion4_5
+  - explosion4_6
+  - battery_5
+  m_Tag: Batteries_atlas
+  m_IsVariant: 0

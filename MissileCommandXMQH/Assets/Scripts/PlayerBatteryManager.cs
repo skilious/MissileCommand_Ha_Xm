@@ -27,19 +27,58 @@ public class PlayerBatteryManager : MonoBehaviour
     {
         _missilesAloft = new List<PlayerMissile>();
 
-        PlayerMissile.OnHitTarget += PlayerMissile_OnHitTarget;
+        //PlayerMissile.OnHitTarget += PlayerMissile_OnHitTarget;
     }
 
 
     private void Start()
     {
-        _batteries = GameObject.FindObjectOfType<PlayerBattery>();
+        _batteries = GameObject.FindObjectsOfType<PlayerBattery>();
 
         
     }
     // Update is called once per frame
     void MouseClickHandler(MouseClick click)
     {
-        
+        PlayerBatteryId batteryId = PlayerBatteryId.BATTERY_NONE;
+
+        switch(click.button)
+        {
+            case MouseButtons.LEFT:
+                batteryId = PlayerBatteryId.BATTERY_LEFT;
+                break;
+            case MouseButtons.MIDDLE:
+                batteryId = PlayerBatteryId.BATTERY_MIDDLE;
+                break;
+            case MouseButtons.RIGHT:
+                batteryId = PlayerBatteryId.BATTERY_RIGHT;
+                break;
+        }
+
+        FireMissileAndTrack(batteryId, click.worldPoint);
+    }
+
+    void FireMissileAndTrack(PlayerBatteryId batteryId, Vector2 target)
+    {
+        PlayerBattery battery = _batteries[(int)batteryId];
+
+        PlayerMissile missile = battery.FireMissileAt(target, battery.gameObject.transform.position);
+
+        if (missile != null) _missilesAloft.Add(missile);
+    }
+
+    private void PlayerMissile_OnHitTarget(PlayerMissile missile)
+    {
+        _missilesAloft.Remove(missile);
+    }
+
+    public int MissileCount
+    {
+        get { return _missilesAloft.Count; }
+    }
+
+    public int BatteryCount
+    {
+        get { return _batteries.Length; }
     }
 }
