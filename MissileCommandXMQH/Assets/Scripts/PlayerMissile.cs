@@ -35,6 +35,18 @@ public class PlayerMissile : MonoBehaviour
         }
     }
 
+    protected Vector3 Target
+    {
+        get
+        {
+            return _target;
+        }
+
+        set
+        {
+            _target = value;
+        }
+    }
 
 }
 

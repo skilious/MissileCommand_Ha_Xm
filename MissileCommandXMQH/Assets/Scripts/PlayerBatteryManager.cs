@@ -27,7 +27,7 @@ public class PlayerBatteryManager : MonoBehaviour
     {
         _missilesAloft = new List<PlayerMissile>();
 
-        //PlayerMissile.OnHitTarget += PlayerMissile_OnHitTarget;
+        PlayerMissile.OnHitTarget += PlayerMissile_OnHitTarget;
     }
 
 
@@ -35,13 +35,13 @@ public class PlayerBatteryManager : MonoBehaviour
     {
         _batteries = GameObject.FindObjectsOfType<PlayerBattery>();
 
-        
+        InputManager.onMouseClicked += MouseClickHandler;
     }
     // Update is called once per frame
     void MouseClickHandler(MouseClick click)
     {
         PlayerBatteryId batteryId = PlayerBatteryId.BATTERY_NONE;
-
+        Debug.Log(click.button);
         switch(click.button)
         {
             case MouseButtons.LEFT:

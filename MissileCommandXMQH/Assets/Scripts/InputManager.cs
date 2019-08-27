@@ -35,25 +35,25 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(1) || Input.GetMouseButton(2) || Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1) || Input.GetMouseButton(2) || Input.GetMouseButton(0))
         {
             if (Input.GetMouseButton((int)MouseButtons.MOUSE1) && !_lastMouse1)
             {
                 Vector2 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
                 onMouseClicked(new MouseClick(point, MouseButtons.MOUSE1));
             }
-        }
 
-        if(Input.GetMouseButton((int)MouseButtons.MOUSE2) && !_lastMouse2)
-        {
-            Vector2 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-            onMouseClicked(new MouseClick(point, MouseButtons.MOUSE1));
-        }
+            if (Input.GetMouseButton((int)MouseButtons.MOUSE2) && !_lastMouse2)
+            {
+                Vector2 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+                onMouseClicked(new MouseClick(point, MouseButtons.MOUSE2));
+            }
 
-        if(Input.GetMouseButton((int)MouseButtons.MOUSE2) && !_lastMouse2)
-        {
-            Vector2 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-            onMouseClicked(new MouseClick(point, MouseButtons.MOUSE2));
+            if (Input.GetMouseButton((int)MouseButtons.MOUSE3) && !_lastMouse3)
+            {
+                Vector2 point = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+                onMouseClicked(new MouseClick(point, MouseButtons.MOUSE3));
+            }
         }
         _lastMouse1 = Input.GetMouseButton((int)MouseButtons.MOUSE1);
         _lastMouse2 = Input.GetMouseButton((int)MouseButtons.MOUSE2);

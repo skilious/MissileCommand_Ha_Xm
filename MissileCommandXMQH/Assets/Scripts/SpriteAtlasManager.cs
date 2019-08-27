@@ -9,6 +9,8 @@ public class SpriteAtlasManager : MonoBehaviour
 
     [SerializeField]
     private SpriteAtlas _batteryAtlas = null;
+
+    [SerializeField]
     private SpriteAtlas _hudAtlas = null;
 
     private List<SpriteAtlas> _atlasses = null;

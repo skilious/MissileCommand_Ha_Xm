@@ -13,6 +13,7 @@ public class Helper
         {
             cam = Camera.main;
         }
+        mousePoint = Input.mousePosition;
         return (cam.ScreenToWorldPoint(mousePoint));
     }
 
