@@ -12,7 +12,7 @@ public class PlayerMissile : MonoBehaviour
 
     protected bool _firing = false;
     protected Vector3 _target;
-
+    
     public void AimAtTarget(Vector2 target, Vector2 origin)
     {
         _target = target;
@@ -21,6 +21,7 @@ public class PlayerMissile : MonoBehaviour
         transform.rotation = Helper.GetLocalAngleBetweenVectors2((Vector2)origin, target);
     }
 
+    
     public void Fire()
     {
         _firing = true;
@@ -28,10 +29,20 @@ public class PlayerMissile : MonoBehaviour
 
     void Update()
     {
-        if(_firing)
+        var _mousePos = Input.mousePosition;
+        _mousePos.z = 0.0f;
+
+        var objectPos = Camera.main.ScreenToWorldPoint(_mousePos);
+        if (_firing)
         {
             transform.position += transform.right * 0.05f;
 
+        }
+
+        if(transform.position == objectPos)
+        {
+            Debug.Log("It's here, destroy itself.");
+            Destroy(gameObject);
         }
     }
 

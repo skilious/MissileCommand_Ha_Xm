@@ -18,7 +18,7 @@ public enum PlayerBatteryId
 
 public class PlayerBatteryManager : MonoBehaviour
 {
-    private PlayerBattery[] _batteries;
+    public PlayerBattery[] _batteries;
     private List<PlayerMissile> _missilesAloft;
 
 
