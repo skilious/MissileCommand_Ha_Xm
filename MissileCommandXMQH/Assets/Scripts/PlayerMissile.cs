@@ -12,7 +12,19 @@ public class PlayerMissile : MonoBehaviour
 
     protected bool _firing = false;
     protected Vector3 _target;
-    
+
+    [SerializeField]
+    protected Sprite explosionSprite;
+
+    Vector3 point = new Vector3();
+    Vector2 mousePos = new Vector2();
+    void Start()
+    {
+        mousePos.x = Input.mousePosition.x;
+        mousePos.y = Input.mousePosition.y;
+
+        point = Camera.main.ScreenToWorldPoint(mousePos);
+    }
     public void AimAtTarget(Vector2 target, Vector2 origin)
     {
         _target = target;
@@ -21,7 +33,6 @@ public class PlayerMissile : MonoBehaviour
         transform.rotation = Helper.GetLocalAngleBetweenVectors2((Vector2)origin, target);
     }
 
-    
     public void Fire()
     {
         _firing = true;
@@ -29,21 +40,18 @@ public class PlayerMissile : MonoBehaviour
 
     void Update()
     {
-        var _mousePos = Input.mousePosition;
-        _mousePos.z = 0.0f;
+        float checkDistance = Vector2.Distance(transform.position, point);
+        if (checkDistance <= 0.1f)
+        {
+            Debug.Log("Deleted!");
+            StartCoroutine(Explosion());
+        }
 
-        var objectPos = Camera.main.ScreenToWorldPoint(_mousePos);
         if (_firing)
         {
             transform.position += transform.right * 0.05f;
-
         }
-
-        if(transform.position == objectPos)
-        {
-            Debug.Log("It's here, destroy itself.");
-            Destroy(gameObject);
-        }
+        Debug.Log("Mouse location: " + point + " Current missile pos: " + transform.position);
     }
 
     protected Vector3 Target
@@ -59,6 +67,16 @@ public class PlayerMissile : MonoBehaviour
         }
     }
 
+    IEnumerator Explosion()
+    {
+        _firing = false;
+        this.GetComponent<SpriteRenderer>().sprite = explosionSprite;
+        yield return new WaitForSeconds(2.0f);
+        Debug.Log("Explosion!");
+        Destroy(gameObject);
+    }
+
+    
 }
 
 

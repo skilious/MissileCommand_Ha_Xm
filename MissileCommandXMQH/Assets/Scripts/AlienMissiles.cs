@@ -34,6 +34,6 @@ public class AlienMissiles : MonoBehaviour
     void Update()
     {
         _alienMissiles.position = Vector3.MoveTowards(transform.position, cities[Rand].transform.position, Time.deltaTime * Speed);
-        
+        transform.rotation = Helper.GetLocalAngleBetweenVectors2((Vector2)transform.position, cities[Rand].transform.position);
     }
 }
