@@ -18,6 +18,8 @@ public class PlayerMissile : MonoBehaviour
 
     private bool _explosion = false;
 
+    public float RandExpansion;
+
     Vector3 point = new Vector3();
     Vector2 mousePos = new Vector2();
 
@@ -28,12 +30,13 @@ public class PlayerMissile : MonoBehaviour
         //Grabs the mouse position from the main camera to world point.
         point = Camera.main.ScreenToWorldPoint(mousePos);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
     }
     public void AimAtTarget(Vector2 target, Vector2 origin)
     {
         _target = target;
         transform.position = origin;
-
+        
         transform.rotation = Helper.GetLocalAngleBetweenVectors2((Vector2)origin, target);
     }
 
@@ -44,12 +47,15 @@ public class PlayerMissile : MonoBehaviour
 
     void Update()
     {
+        //Checks the distance between gameobject and mouse position.
         float checkDistance = Vector2.Distance(transform.position, point);
-        if (checkDistance <= 0.1f)
+        if (checkDistance <= 0.3f)
         {
             //It defaults to false once called in the nested if statement with the scale of gameobject to 0 and switches bool statement to true.
-            if(!_explosion)
+            if (!_explosion)
             {
+
+                RandExpansion = UnityEngine.Random.Range(1.0f, 2.5f);
                 transform.localScale = new Vector3(0, 0, 0);
                 _explosion = true;
             }
@@ -82,15 +88,15 @@ public class PlayerMissile : MonoBehaviour
         _firing = false;
         //switches the sprite to the explosion.
         this.GetComponent<SpriteRenderer>().sprite = explosionSprite;
+        this.GetComponent<SpriteRenderer>().color = Color.white;
         //this another bool to check if explosion is true and expands the explosion.
-        if(_explosion)
+        if (_explosion)
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
-            transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime * 4.0f;
+            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime * 10.0f;
         }
-        //Waits for two seconds and destroy the gameobject.
-        yield return new WaitForSeconds(2.0f);
-        Debug.Log("Explosion!");
+        //Waits for RANDEXPANSION (RANDOM BETWEEN 1.0F - 2.5F) seconds and destroy the gameobject.
+        yield return new WaitForSeconds(RandExpansion);
         Destroy(gameObject);
     }
 

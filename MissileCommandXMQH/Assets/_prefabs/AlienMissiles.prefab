@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2800744242342983560}
   m_Layer: 0
   m_Name: AlienMissiles
-  m_TagString: Untagged
+  m_TagString: AlienMissile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: ac7b9936f3ed80642b7ddf1c671780c5, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.970162, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73f778ceac80342468cc7d7bdba89d83, type: 2}
+  - {fileID: 2100000, guid: f53a861deabd60c4c892bbb9fb13a8e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +121,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -192,7 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabMissile: {fileID: 0}
   _alienMissiles: {fileID: 4328321681547116598}
-  Speed: 2
+  _manager: {fileID: 0}
+  Speed: 1.5
   cities: []
   explosionSprite: {fileID: 21300000, guid: 31c7996f4c87eae4599c2a3fe84acee7, type: 3}
 --- !u!61 &4744423306214236059
@@ -212,7 +213,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.337037}
-    oldSize: {x: 0.05, y: 0.06}
+    oldSize: {x: 0.06, y: 0.05}
     newSize: {x: 0.05, y: 0.07}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

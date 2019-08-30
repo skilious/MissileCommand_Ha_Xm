@@ -7,6 +7,9 @@ public class PlayerBattery : MonoBehaviour
     [SerializeField]
     protected PlayerMissile MissilePrefab;
 
+    [SerializeField]
+    protected AlienManager _alienManager;
+
     public static readonly int CAPACITY = 10;
     
     private bool isAlive = false;
@@ -18,6 +21,16 @@ public class PlayerBattery : MonoBehaviour
         _rounds = CAPACITY;
 
         _spriteRend = gameObject.GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (_alienManager.MissilesOnScreen <= 0)
+        {
+            _rounds = CAPACITY;
+            _spriteRend.enabled = true;
+            _spriteRend.sprite = SpriteAtlasManager.Instance.GetSprite(SpriteAtlasManager.BATTERY_ATLAS, _rounds);
+        }
     }
 
     public bool isArmed()

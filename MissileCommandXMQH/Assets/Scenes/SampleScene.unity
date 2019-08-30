@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &82374260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8643490180992441222, guid: 8e250833d396de6489353337894c0b20,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8643490181794687204, guid: 8e250833d396de6489353337894c0b20,
         type: 3}
       propertyPath: m_Name
@@ -563,6 +568,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2895196231390802311, guid: a91e0f78489821e4faae52bcf9d70927,
+        type: 3}
+      propertyPath: _alienManager
+      value: 
+      objectReference: {fileID: 773950249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91e0f78489821e4faae52bcf9d70927, type: 3}
 --- !u!1 &773950244
@@ -666,8 +676,9 @@ MonoBehaviour:
   - {fileID: 928749682}
   _missiles: {fileID: 2717634047799845535, guid: 38e46ca261c8c9b44a7febe009a25198,
     type: 3}
-  wave: 5
-  roundReady: 0
+  MissilesOnScreen: 0
+  roundReady: 1
+  Timer: 10
 --- !u!1 &786667142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8643490181183991505, guid: 8e250833d396de6489353337894c0b20,
@@ -858,6 +869,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2895196231390802311, guid: a91e0f78489821e4faae52bcf9d70927,
+        type: 3}
+      propertyPath: _alienManager
+      value: 
+      objectReference: {fileID: 773950249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91e0f78489821e4faae52bcf9d70927, type: 3}
 --- !u!1 &1163747257 stripped
@@ -1134,6 +1150,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2895196231390802311, guid: a91e0f78489821e4faae52bcf9d70927,
+        type: 3}
+      propertyPath: _alienManager
+      value: 
+      objectReference: {fileID: 773950249}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91e0f78489821e4faae52bcf9d70927, type: 3}
 --- !u!1 &1965570924

@@ -21,7 +21,6 @@ public class PlayerBatteryManager : MonoBehaviour
     public PlayerBattery[] _batteries;
     private List<PlayerMissile> _missilesAloft;
 
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,11 +36,10 @@ public class PlayerBatteryManager : MonoBehaviour
 
         InputManager.onMouseClicked += MouseClickHandler;
     }
-    // Update is called once per frame
     void MouseClickHandler(MouseClick click)
     {
         PlayerBatteryId batteryId = PlayerBatteryId.BATTERY_NONE;
-        Debug.Log(click.button);
+
         switch(click.button)
         {
             case MouseButtons.LEFT:
