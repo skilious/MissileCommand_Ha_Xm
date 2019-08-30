@@ -20,12 +20,14 @@ public class PlayerMissile : MonoBehaviour
 
     Vector3 point = new Vector3();
     Vector2 mousePos = new Vector2();
+
     void Start()
     {
         mousePos.x = Input.mousePosition.x;
         mousePos.y = Input.mousePosition.y;
         //Grabs the mouse position from the main camera to world point.
         point = Camera.main.ScreenToWorldPoint(mousePos);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
     }
     public void AimAtTarget(Vector2 target, Vector2 origin)
     {
@@ -83,6 +85,7 @@ public class PlayerMissile : MonoBehaviour
         //this another bool to check if explosion is true and expands the explosion.
         if(_explosion)
         {
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
             transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime * 4.0f;
         }
         //Waits for two seconds and destroy the gameobject.
