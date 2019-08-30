@@ -666,6 +666,8 @@ MonoBehaviour:
   - {fileID: 928749682}
   _missiles: {fileID: 2717634047799845535, guid: 38e46ca261c8c9b44a7febe009a25198,
     type: 3}
+  wave: 5
+  roundReady: 0
 --- !u!1 &786667142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8643490181183991505, guid: 8e250833d396de6489353337894c0b20,

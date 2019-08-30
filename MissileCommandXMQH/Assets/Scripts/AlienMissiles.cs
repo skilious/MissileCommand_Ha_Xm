@@ -30,7 +30,7 @@ public class AlienMissiles : MonoBehaviour
         _alienMissiles = GetComponent<Transform>();
 
         Rand = Random.Range(0, 6);
-        Debug.Log("Random building target: " + Rand);
+        //Debug.Log("Random building target: " + Rand);
         _firing = true;
     }
 
