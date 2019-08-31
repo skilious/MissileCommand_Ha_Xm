@@ -33,6 +33,7 @@ public class ScoreTrack : MonoBehaviour
 
             Bonus.GetComponent<Text>().text = "Bouns points " + bonusPoints; 
             //score += bonusPoints;
+            // for some reason the bonus gets added continuously beacuse roundReady is always on despite it saying it isnt
 
             prevScore = score; // saves the current rounds score so it is taken off for bonus points calculating next round
         }
