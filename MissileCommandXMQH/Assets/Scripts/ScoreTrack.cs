@@ -29,9 +29,9 @@ public class ScoreTrack : MonoBehaviour
         
         if (gameCheck == true) // when the round ends
         {
-            bonusPoints = ((score - prevScore)/5)*3;
+            bonusPoints = ((score - prevScore)/5)*2; // 10 bonus points per rocket, 10 is 2/5ths of 25
 
-            Bonus.GetComponent<Text>().text = "Bouns points " + bonusPoints; // 10 bonus points per rocket, 10 is 3/5ths of 25
+            Bonus.GetComponent<Text>().text = "Bouns points " + bonusPoints; 
             //score += bonusPoints;
 
             prevScore = score; // saves the current rounds score so it is taken off for bonus points calculating next round
