@@ -20,6 +20,8 @@ public class AlienMissiles : MonoBehaviour
     protected Sprite explosionSprite;
     private bool _explosion = false;
 
+    public GameObject scoreTracker;
+
     int Rand = 0;
     private void Awake()
     {
@@ -62,7 +64,11 @@ public class AlienMissiles : MonoBehaviour
         {
             //Minus Missile once its hit and the counter goes down.
             _manager.MissilesOnScreen--;
-            //Before destroyed, gain points.
+            //Before destroyed, gain points by adding to the found score system.
+            scoreTracker = GameObject.Find("GameScore");
+            ScoreTrack sAccess = scoreTracker.GetComponent<ScoreTrack>(); // create new variable to access the script
+            sAccess.score += 25;
+
             Destroy(gameObject);
 
         }
