@@ -8,12 +8,15 @@ public class AlienManager : MonoBehaviour
     public GameObject[] _targets;
     public GameObject _missiles;
     public int MissilesOnScreen = 0;
-    private int FiredMissiles = 0;
-    private int totalMissiles = 0;
+    public int FiredMissiles = 0;
+    public int totalMissiles = 0;
     protected int wave = 3;
     protected int randSplit = 0;
     public bool roundReady = false;
     public float Timer = 10.0f;
+
+    public CityManager cityManager;
+    public ScoreTrack _ScoreTrack;
     void Update()
     {
         if(MissilesOnScreen <= 0)
@@ -21,6 +24,8 @@ public class AlienManager : MonoBehaviour
             Timer -= Time.deltaTime;
             if(Timer <= 0)
             {
+                _ScoreTrack._citiesHit = 0;
+                cityManager.Reset();
                 roundReady = true;
                 Debug.Log("ROUND STARTING!");
                 Timer = 10.0f;
@@ -35,7 +40,6 @@ public class AlienManager : MonoBehaviour
 
                 for (int i = 0; i < randSplit; i++) // loop to fire missiles in volleys based on random number
                 {
-                    MissilesOnScreen++;
                     StartCoroutine(waveSender());
                     FiredMissiles--;
                 }
@@ -46,7 +50,7 @@ public class AlienManager : MonoBehaviour
                 }
             }
             //This is where its supposed to be located.
-            FiredMissiles += totalMissiles += wave + randSplit; // waves get harder each round
+            FiredMissiles = totalMissiles += wave + randSplit; // waves get harder each round
             Debug.Log("Total Missiles: " + totalMissiles);
         }
         //This is bad because it would keep looping non-stop until roundready is true.
@@ -69,7 +73,7 @@ public class AlienManager : MonoBehaviour
         //RandSpawn = Random.Range(0, 3);
 
         float RandomLocator;
-        RandomLocator = Random.Range(-5.0f, 5.0f);
+        RandomLocator = Random.Range(-7.0f, 7.0f);
         Vector3 RandPos = new Vector3(RandomLocator, 5.5f, 0);
         Instantiate(_missiles, RandPos, Quaternion.identity);
     }

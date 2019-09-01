@@ -93,7 +93,7 @@ public class PlayerMissile : MonoBehaviour
         if (_explosion)
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
-            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime * 10.0f;
+            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime * 15.0f;
         }
         //Waits for RANDEXPANSION (RANDOM BETWEEN 1.0F - 2.5F) seconds and destroy the gameobject.
         yield return new WaitForSeconds(RandExpansion);

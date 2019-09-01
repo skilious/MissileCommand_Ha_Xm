@@ -31,9 +31,9 @@ public class AlienMissiles : MonoBehaviour
 
     private void Start()
     {
-        Speed = Random.Range(1.0f, 2.0f);
+        Speed = Random.Range(1.0f, 1.5f);
         _alienMissiles = GetComponent<Transform>();
-
+        _manager.MissilesOnScreen++;
         Rand = Random.Range(0, 6);
         //Debug.Log("Random building target: " + Rand);
         _firing = true;
@@ -51,7 +51,7 @@ public class AlienMissiles : MonoBehaviour
         if (_explosion)
         {
             //Expands the explosion once it hits the building.
-            transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime * 4.0f;
+            transform.localScale += new Vector3(0.3f, 0.3f, 0.3f) * Time.deltaTime * 10.0f;
         }
         //Using the helper's script to rotate the missiles with maths. Its basically LookAt but ignoring two axis except Z.
         transform.rotation = Helper.GetLocalAngleBetweenVectors2((Vector2)transform.position, cities[Rand].transform.position);
@@ -95,7 +95,7 @@ public class AlienMissiles : MonoBehaviour
         //Changes the sprite color to red.
         this.GetComponent<SpriteRenderer>().color = Color.red;
         //Waits for two seconds and destroy the gameobject.
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         _manager.MissilesOnScreen--;
         Destroy(gameObject);
     }

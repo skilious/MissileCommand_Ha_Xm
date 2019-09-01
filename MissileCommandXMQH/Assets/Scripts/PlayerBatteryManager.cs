@@ -29,7 +29,6 @@ public class PlayerBatteryManager : MonoBehaviour
         PlayerMissile.OnHitTarget += PlayerMissile_OnHitTarget;
     }
 
-
     private void Start()
     {
         _batteries = GameObject.FindObjectsOfType<PlayerBattery>();

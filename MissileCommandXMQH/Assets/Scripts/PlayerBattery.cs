@@ -25,7 +25,7 @@ public class PlayerBattery : MonoBehaviour
 
     private void Update()
     {
-        if (_alienManager.MissilesOnScreen <= 0)
+        if (_alienManager.MissilesOnScreen <= 0 && _alienManager.Timer <= 0.2f)
         {
             _rounds = CAPACITY;
             _spriteRend.enabled = true;

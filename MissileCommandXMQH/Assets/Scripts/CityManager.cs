@@ -18,10 +18,21 @@ public class CityManager : MonoBehaviour
 {
     protected City[] _cities;
 
+    [SerializeField]
+    protected SpriteRenderer[] _spriteRends;
+
     private void Awake()
     {
         _cities = GetComponentsInChildren<City>();
         _cities = _cities.OrderBy(City => City.Id).ToArray();
+    }
+
+    public void Reset()
+    {
+        for(int i = 0; i < (int)CityId.CITY_COUNT; i++)
+        {
+            _spriteRends[i].enabled = true;
+        }
     }
 
     public City GetCityById(CityId id)
@@ -32,11 +43,6 @@ public class CityManager : MonoBehaviour
                 return city;
         }
         return null;
-    }
-
-    private void AlienMissile_OnHitTarget()
-    {
-        
     }
 
     public Vector2 GetCityPosition(CityId id)

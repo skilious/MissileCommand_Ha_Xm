@@ -40,11 +40,11 @@ public class SpriteAtlasManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
         _atlasses = new List<SpriteAtlas>()
         {
             _batteryAtlas, _hudAtlas
         };
-        DontDestroyOnLoad(gameObject);
     }
 
     public int NumberOfSprites(string name)
